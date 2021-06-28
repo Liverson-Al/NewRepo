@@ -32,19 +32,19 @@ public:
         x = 0;
         y = 0;
     }
-    point(int valueX, int valueY) {    
-        x = valueX;
-        y = valueY;
+    point(int x, int y) {    
+        this->x = x;
+        this->y = y;
     }
 
-    void setX(int valueX) {
-        x = valueX;
+    void setX(int x) {
+        this->x = x;
     }
     int getX() {
         return(x);
     }
-    void setY(int valueY) {
-        y = valueY;
+    void setY(int y) {
+        this->y = y;
     }
     int getY() {
         return(y);
@@ -54,20 +54,45 @@ public:
     }
 };
 
+class testClass {
+    int* data;
+
+public:
+    testClass(int size) {
+        data = new int[size];
+        for (size_t i = 0; i < size; i++)
+        {
+            data[i] = i;
+        }
+        
+        cout << data << " Конструктор создан\n";
+        for (size_t i = 0; i < size; i++)
+        {
+            cout << data[i] << endl;
+        }
+    }
+    ~testClass() {
+        delete[] data;
+        cout << data << " Деструктор создан\n";
+    }
+};
+
 int main()
 {
     setlocale(LC_ALL, "");
- 
-    point a(5,2);
-    point b; //Он будет (0;0)
-    a.Print();
-    b.Print();
-    
-    
-    
-    human firstHuman; //Объект класса
-    firstHuman.name = "SirGay";
-    firstHuman.age = 228;
-    firstHuman.Print();
+     testClass test1(1);
+     testClass test2(2);
+
+
+
+
+    //point a(5,2);
+    //point b; //Он будет (0;0)
+    //a.Print();
+    //b.Print();            
+    //human firstHuman; //Объект класса
+    //firstHuman.name = "SirGay";
+    //firstHuman.age = 228;
+    //firstHuman.Print();
    
 }
